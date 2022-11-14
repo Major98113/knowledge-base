@@ -1,0 +1,13 @@
+Why streams
+Streams basically provide two major advantages compared to other data handling methods:
+
+Memory efficiency: you don’t need to load large amounts of data in memory before you are able to process it
+Time efficiency: it takes significantly less time to start processing data as soon as you have it,
+                rather than having to wait with processing until the entire payload has been transmitted
+
+There are 4 types of streams in Node.js:
+    - Writable: streams to which we can write data. For example, fs.createWriteStream() lets us write data to a file using streams.
+    - Readable: streams from which data can be read. For example: fs.createReadStream() lets us read the contents of a file.
+    - Duplex: streams that are both Readable and Writable. For example, net.Socket
+    - Transform: streams that can modify or transform the data as it is written and read.
+      For example, in the instance of file-compression, you can write compressed data and read decompressed data to and from a file.

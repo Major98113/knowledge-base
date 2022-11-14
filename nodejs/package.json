@@ -1,0 +1,24 @@
+{
+  "name": "nodejs_interview_crib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "code_dojo.js",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Major98113/nodejs_interview_crib.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Major98113/nodejs_interview_crib/issues"
+  },
+  "homepage": "https://github.com/Major98113/nodejs_interview_crib#readme"
+}

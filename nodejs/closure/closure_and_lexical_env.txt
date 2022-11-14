@@ -1,0 +1,28 @@
+В JavaScript у каждой выполняемой функции, блока кода и скрипта есть связанный с ними внутренний (скрытый) объект,
+    называемый лексическим окружением LexicalEnvironment.
+
+Объект лексического окружения состоит из двух частей:
+    Environment Record – объект, в котором как свойства хранятся все локальные переменные
+    (а также некоторая другая информация, такая как значение this).
+
+    Ссылка на внешнее лексическое окружение – то есть то, которое соответствует коду снаружи
+    (снаружи от текущих фигурных скобок).
+
+Когда блок кода хочет получить доступ к переменной, которой нет локально,
+он следует дальше по ссылке к внешнему лексическому окружению и находит переменную там.
+
+
+Function Declaration
+В отличие от переменных, объявленных с помощью let,
+они полностью инициализируются не тогда, когда выполнение доходит до них, а раньше,
+когда создаётся лексическое окружение.
+
+What is Closure?
+A closure is a function that has access to its outer function scope even after the outer function has returned.
+This means a closure can remember and access variables and arguments of its outer function even after the function has finished.
+
+Before we dive into closures, let’s first understand the lexical scope.
+
+What is a Lexical Scope?
+A lexical scope or static scope in JavaScript refers to the accessibility of the variables,
+   functions, and objects based on their physical location in the source code.

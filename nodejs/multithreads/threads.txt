@@ -1,0 +1,31 @@
+Single thread vs child process vs worker threads vs cluster in nodejs
+
+1) child processes
+    The child_process module provides the ability to spawn new processes which has their own memory.
+    The communication between these processes is established through IPC (inter-process communication) provided by the operating system.
+
+    There are mainly three methods inside this module that we care about.
+    child_process.spawn()
+    child_process.fork()
+    child_process.exec()
+
+    Separate memory is allocated for each child process which means that there is a time and resource overhead.
+
+2) Worker threads
+    Essentially the difference between worker threads and child processes is same as the difference between a thread and a process.
+    Ideally, the number of threads created should be equal to number of cpu cores.
+
+3) Cluster is mainly used for vertically (adding more power to your existing machine) scale your nodejs web server.
+    It is built on top of the child_process module.
+    In an Http server, the cluster module uses child_process.fork() to automatically fork processes and sets up a master-slave architecture
+    where the parent process distributes the incoming request to the child processes in a round-robin fashion.
+    Ideally, the number of processes forked should be equal to the number of cpu cores your machine has.
+
+
+https://alvinlal.netlify.app/blog/single-thread-vs-child-process-vs-worker-threads-vs-cluster-in-nodejs
+
+
+
+
+
+
