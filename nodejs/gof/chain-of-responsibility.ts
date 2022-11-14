@@ -19,7 +19,7 @@
 interface Handler {
     setNext(handler: Handler): Handler;
 
-    handle(request: string): string;
+    handle(request: string): string | null;
 }
 
 /**
@@ -28,7 +28,7 @@ interface Handler {
  */
 abstract class AbstractHandler implements Handler
 {
-    private nextHandler: Handler;
+    private nextHandler: Handler | undefined;
 
     public setNext(handler: Handler): Handler {
         this.nextHandler = handler;
@@ -38,7 +38,7 @@ abstract class AbstractHandler implements Handler
         return handler;
     }
 
-    public handle(request: string): string {
+    public handle(request: string): string | null {
         if (this.nextHandler) {
             return this.nextHandler.handle(request);
         }
@@ -52,7 +52,7 @@ abstract class AbstractHandler implements Handler
  * следующему обработчику в цепочке.
  */
 class MonkeyHandler extends AbstractHandler {
-    public handle(request: string): string {
+    public handle(request: string): string | null {
         if (request === 'Banana') {
             return `Monkey: I'll eat the ${request}.`;
         }
@@ -62,7 +62,7 @@ class MonkeyHandler extends AbstractHandler {
 }
 
 class SquirrelHandler extends AbstractHandler {
-    public handle(request: string): string {
+    public handle(request: string): string | null {
         if (request === 'Nut') {
             return `Squirrel: I'll eat the ${request}.`;
         }
@@ -71,7 +71,7 @@ class SquirrelHandler extends AbstractHandler {
 }
 
 class DogHandler extends AbstractHandler {
-    public handle(request: string): string {
+    public handle(request: string): string | null {
         if (request === 'MeatBall') {
             return `Dog: I'll eat the ${request}.`;
         }

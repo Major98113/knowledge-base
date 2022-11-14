@@ -5,7 +5,7 @@
 * Если в массиве остались неотсортированные подмассивы — смотри пункт 1.
 * */
 
-const selectionSort = arr => {
+const selectionSort = <T extends number>(arr: T[]) => {
     for (let i = 0, l = arr.length, k = l - 1; i < k; i++) {
         let indexMin = i;
         for (let j = i + 1; j < l; j++) {
@@ -20,4 +20,4 @@ const selectionSort = arr => {
     return arr;
 };
 
-console.log( selectionSort([4, 2, 6, 5, 3, 9]) )
+console.log( selectionSort<number>([4, 2, 6, 5, 3, 9]) )

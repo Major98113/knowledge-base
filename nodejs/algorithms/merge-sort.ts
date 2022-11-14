@@ -5,7 +5,7 @@
 * Наименьший (или наибольший) элемент отправляется в результирующий массив, оставшийся элемент остается актуальным для сравнения с элементом из другого массива на следующем шаге.
 * */
 
-const _mergeArrays = (a, b) => {
+const _mergeArrays = (a: number[], b: number[]) => {
     const c = []
 
     while (a.length && b.length) {
@@ -23,14 +23,15 @@ const _mergeArrays = (a, b) => {
     return c
 }
 
-const mergeSort = (a) => {
+const mergeSort = <T>(a: T[]): T[] => {
     if (a.length < 2) return a
     const middle = Math.floor(a.length / 2)
     const a_l = a.slice(0, middle)
     const a_r = a.slice(middle, a.length)
     const sorted_l = mergeSort(a_l)
     const sorted_r = mergeSort(a_r)
+    // @ts-ignore
     return _mergeArrays(sorted_l, sorted_r)
 }
 
-console.log(mergeSort([1,4,3,0,-1,15,2]))
+console.log(mergeSort<number>([1,4,3,0,-1,15,2]))

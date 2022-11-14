@@ -18,7 +18,7 @@ interface Command {
  * Некоторые команды способны выполнять простые операции самостоятельно.
  */
 class SimpleCommand implements Command {
-    private payload: string;
+    private readonly payload: string;
 
     constructor(payload: string) {
         this.payload = payload;
@@ -83,9 +83,9 @@ class Receiver {
  * команде.
  */
 class Invoker {
-    private onStart: Command;
+    private onStart: Command | undefined;
 
-    private onFinish: Command;
+    private onFinish: Command | undefined;
 
     /**
      * Инициализация команд.
@@ -116,7 +116,7 @@ class Invoker {
         }
     }
 
-    private isCommand(object): object is Command {
+    private isCommand(object: any): object is Command {
         return object.execute !== undefined;
     }
 }

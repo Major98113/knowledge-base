@@ -33,6 +33,6 @@ const fns = urls.map(url => {
   }
 })
 
-async.parallelLimit(fns, 3, err => {});
+await async.parallelLimit(fns, 3, err => {});
 
 //Для справки: https://caolan.github.io/async/docs.html#parallelLimit

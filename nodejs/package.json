@@ -2,12 +2,12 @@
   "name": "nodejs_interview_crib",
   "version": "1.0.0",
   "description": "",
-  "main": "code_dojo.js",
+  "main": "code-dojo.js",
   "dependencies": {
+    "async": "^3.2.4",
     "chai": "^4.2.0",
     "request": "^2.88.2"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Major98113/nodejs_interview_crib/issues"
   },
-  "homepage": "https://github.com/Major98113/nodejs_interview_crib#readme"
+  "homepage": "https://github.com/Major98113/nodejs_interview_crib#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.9"
+  }
 }

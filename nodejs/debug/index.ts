@@ -1,8 +1,10 @@
-const express = require('express');
-const fs = require('fs');
+// @ts-ignore
+import express from 'express';
+import fs from "fs";
+
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/', (req: any, res: { send: (arg0: string) => void; }) => {
     debugger;
     res.send('Hello World!')
 })

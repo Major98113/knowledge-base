@@ -8,12 +8,13 @@
 *   2 этап Сортировка на построенной пирамиде.
 * */
 
-var array_length;
+let array_length: number;
+
 /* to create MAX  array */
-function heap_root(input, i) {
-    var left = 2 * i + 1;
-    var right = 2 * i + 2;
-    var max = i;
+function heap_root(input: number[], i: number) {
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+    let max = i;
 
     if (left < array_length && input[left] > input[max]) {
         max = left;
@@ -29,18 +30,20 @@ function heap_root(input, i) {
     }
 }
 
-function swap(input, index_A, index_B) {
-    var temp = input[index_A];
+// @ts-ignore
+function swap(input: unknown[], index_A: number, index_B: number) {
+    const temp = input[index_A];
 
     input[index_A] = input[index_B];
     input[index_B] = temp;
 }
 
-function heapSort(input) {
+function heapSort(input: number[]) {
 
+    let i;
     array_length = input.length;
 
-    for (var i = Math.floor(array_length / 2); i >= 0; i -= 1)      {
+    for (i = Math.floor(array_length / 2); i >= 0; i -= 1)      {
         heap_root(input, i);
     }
 
@@ -53,6 +56,6 @@ function heapSort(input) {
     }
 }
 
-var arr = [3, 0, 2, 5, -1, 4, 1];
-heapSort(arr);
+const randomArr = [3, 0, 2, 5, -1, 4, 1];
+heapSort(randomArr);
 console.log(arr);

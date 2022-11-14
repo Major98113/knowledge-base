@@ -5,7 +5,7 @@
 * Перед ним мы и вставляем текущий, для этого предварительно сдвинув все элементы, которые оказались больше текущего, в сторону увеличения на один индекс.
 * */
 
-const insertionSort = arr => {
+const insertionSort = <T>(arr: T[]) => {
     for (let i = 1, l = arr.length; i < l; i++) {
         const current = arr[i];
         let j = i;
@@ -18,4 +18,4 @@ const insertionSort = arr => {
     return arr;
 };
 
-console.log(insertionSort([18,1,4,35,0,-3,6,534,6]))
+console.log(insertionSort<number>([18,1,4,35,0,-3,6,534,6]))

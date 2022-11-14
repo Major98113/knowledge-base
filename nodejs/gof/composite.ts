@@ -11,7 +11,7 @@
  * сложных объектов структуры.
  */
 abstract class Component {
-    protected parent: Component;
+    protected parent: Component | undefined;
 
     /**
      * При необходимости базовый Компонент может объявить интерфейс для
@@ -19,12 +19,12 @@ abstract class Component {
      * также может предоставить некоторую реализацию по умолчанию для этих
      * методов.
      */
-    public setParent(parent: Component) {
+    public setParent(parent: any) {
         this.parent = parent;
     }
 
     public getParent(): Component {
-        return this.parent;
+        return <Component>this.parent;
     }
 
     /**
@@ -125,6 +125,7 @@ function clientCode(component: Component) {
 /**
  * Таким образом, клиентский код может поддерживать простые компоненты-листья...
  */
+// @ts-ignore
 const simple = new Leaf();
 console.log('Client: I\'ve got a simple component:');
 clientCode(simple);

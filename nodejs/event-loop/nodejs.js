@@ -4,11 +4,11 @@ const path = require('path');
 console.log("START");
 
 setTimeout( () => console.log("Timeout 1"), 0 );
-setImmediate( () => console.log("Immidiate 1") );
+setImmediate( () => console.log("Immediate 1") );
 
 fs.readFile( path.resolve('./test.txt'), ( err, file ) => {
     setTimeout( () => console.log("Timeout 2"), 0 );
-    setImmediate( () => console.log("Immidiate 2") );
+    setImmediate( () => console.log("Immediate 2") );
     process.nextTick( () => console.log("Next Tick 1") );
     console.log( file.toString() );
 });
@@ -37,10 +37,10 @@ console.log("END");
 //Next Tick 3
 //Timeout 1
 //Timeout 3
-//Immidiate 1
+//Immediate 1
 //Hello from JS!
 //Next Tick 1
-//Immidiate 2
+//Immediate 2
 //Timeout 2
 
 /*
@@ -50,6 +50,6 @@ Phases of NODE.JS event loop:
 3) Timers
 4) I/O callbacks
 5) Incoming I/O requests
-6) Check phase ( setImmidiate )
+6) Check phase ( setImmediate )
 6) Close callbacks - socket.on('close', ...)
 */
